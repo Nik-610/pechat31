@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="logo.png" type="image/png" />
-    <title>Печатный Цех | Полиграфия, фото и копицентр в Разумном</title>
+    <title>Печатный Цех | Полиграфия, photo и копицентр в Разумном</title>
     <style>
 /* ==========================================================================
      1. ОБЩИЕ СТИЛИ И СБРОСЫ
@@ -24,7 +24,7 @@ body {
 }
 
 /* ==========================================================================
-     2. ШАПКА (HEADER) — СТАБИЛЬНЫЙ ФИКС
+     2. ШАПКА (HEADER)
      ========================================================================== */
 .header {
   display: flex;
@@ -205,15 +205,17 @@ body {
 }
 
 .tabs-container {
+  position: relative;
   display: inline-flex;
   background-color: #f0f0f0;
   border-radius: 50px;
   padding: 5px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
   margin-bottom: 40px;
-  gap: 5px;
 }
 
 .tab-btn {
+  position: relative;
   background: none;
   border: none;
   padding: 12px 24px;
@@ -222,16 +224,26 @@ body {
   cursor: pointer;
   outline: none;
   color: #555;
-  border-radius: 40px;
-  transition: all 0.25s ease;
+  z-index: 2;
+  transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .tab-btn.active {
-  background: #ffffff;
   color: #000;
+}
+
+.tab-slider {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  bottom: 3px;
+  background: #ffffff;
   border: 1px solid #222222;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-radius: 40px;
+  z-index: 1;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .tab-content {
@@ -311,6 +323,7 @@ body {
   font-weight: 700;
   color: #111;
   font-size: 17px;
+  white-space: normal;
 }
 
 .price-table td:last-child {
@@ -377,6 +390,11 @@ body {
   background: #fafafa !important;
 }
 
+.price-table tbody tr.accordion-details td {
+  display: block !important;
+  width: 100% !important;
+}
+
 .canvas-sizes-list {
   width: 100%;
   padding: 10px 0 20px 0;
@@ -393,7 +411,15 @@ body {
   padding: 16px 25px;
   border-radius: 8px;
   border: 1px solid #eef0f2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+  transition: all 0.2s ease;
   width: 100%;
+}
+
+.size-row:hover {
+  border-color: #ddd;
+  background: #fffbdf;
+  transform: translateX(5px);
 }
 
 .size-name-text { font-size: 16px; font-weight: 600; color: #333; }
@@ -468,6 +494,11 @@ body {
   text-decoration: none;
   color: #222;
   font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.rating-badge:hover {
+  transform: scale(1.03);
 }
 
 .rating-badge .stars {
@@ -594,8 +625,10 @@ body {
   border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
+  transition: opacity 0.3s;
 }
 
+.btn-social:hover { opacity: 0.9; }
 .btn-tg { background: #0088cc; }
 .btn-wa { background: #25d366; }
 .btn-vk { background: #0077ff; }
@@ -626,116 +659,135 @@ body {
   color: inherit;
 }
 
+.footer-bottom a:hover {
+  text-decoration: underline;
+  color: #00aeef;
+}
+
 /* ==========================================================================
-     9. ПОЛНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ (ЖЕСТКИЙ ФИКС)
+     9. МОБИЛЬНАЯ АДАПТИВНОСТЬ (ПОЛНЫЙ ФИКС)
      ========================================================================== */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    height: auto;
-    padding: 15px 20px;
-    gap: 15px;
-    position: relative;
+    flex-direction: column !important;
+    gap: 15px !important;
+    padding: 15px 20px !important;
+    text-align: center !important;
+    height: auto !important;
+    position: relative !important;
   }
 
-  .logo-container {
-    width: 90px;
-    height: auto;
-    justify-content: center;
+  .logo-container { 
+    width: 90px !important; 
+    height: auto !important;
+    margin: 0 auto !important;
   }
-
-  .nav {
-    width: 100%;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+  .logo-img { 
+    position: static !important;
+    width: 100% !important; 
+    height: auto !important; 
   }
-
-  .nav a {
-    margin-right: 0;
-    font-size: 15px;
+  
+  .nav { 
+    justify-content: center !important; 
+    width: 100% !important; 
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+  }
+  .nav a { 
+    margin: 0 !important; 
+    font-size: 15px !important; 
   }
 
   .header-buttons {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    justify-content: center !important;
   }
 
   .btn-call {
-    width: 100%;
-    justify-content: center;
-    padding: 12px;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px !important;
+    font-size: 15px !important;
   }
 
-  .hero { padding: 60px 20px; }
-  .hero h1 { font-size: 28px; }
-  .hero p { font-size: 15px; }
+  .hero { padding: 60px 20px !important; }
+  .hero h1 { font-size: 28px !important; }
+  .hero p { font-size: 15px !important; }
 
-  .tabs-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 16px;
-    padding: 6px;
-    background-color: #eee;
+  .tabs-container { 
+    display: flex !important;
+    flex-direction: column !important; 
+    width: 100% !important; 
+    background-color: #eee !important;
+    border-radius: 16px !important; 
+    padding: 6px !important;
+    gap: 6px !important;
+  }
+  
+  .tab-btn { 
+    width: 100% !important; 
+    border-radius: 12px !important; 
+    background: #ffffff !important;
+    color: #555 !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    border: 1px solid transparent !important;
+  }
+  
+  .tab-btn.active { 
+    background: #222222 !important;
+    color: #ffffff !important; 
+    border: 1px solid #222222 !important;
+  }
+  
+  .tabs-container .tab-slider { 
+    display: none !important; 
   }
 
-  .tab-btn {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    border-radius: 12px;
-  }
-
-  .tab-btn.active {
-    background: #222 !important;
-    color: #fff !important;
-    border-color: #222;
-  }
-
-  .price-table thead { display: none; }
+  .price-table thead { display: none !important; }
 
   .price-table tbody tr:not(.accordion-details) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 15px;
-    gap: 10px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 18px 15px !important;
+    gap: 10px !important;
   }
 
-  .price-table td:first-child { 
-    max-width: 65%; 
-    font-size: 15px;
-  }
-  
-  .price-table td:nth-child(2) { display: none; }
-  
-  .price-table td:last-child { 
-    text-align: right; 
-  }
-  
-  .service-price { font-size: 16px; }
+  .price-table td:first-child { max-width: 65% !important; font-size: 15px !important; }
+  .price-table td:nth-child(2) { display: none !important; }
+  .price-table td:last-child { text-align: right !important; }
+  .service-price { font-size: 16px !important; }
 
   .price-table tbody tr.accordion-details.open {
     padding: 0 15px !important;
   }
 
-  .size-row {
-    padding: 12px;
-  }
-  .size-name-text { font-size: 14px; }
-  .size-price-text { font-size: 15px; }
+  .canvas-sizes-list { padding: 0 0 15px 0 !important; }
+  .size-row { padding: 12px !important; }
+  .size-name-text { font-size: 14px !important; }
+  .size-price-text { font-size: 15px !important; }
+
+  .services-section, .gallery-section, .reviews-section { padding: 50px 20px !important; }
+  .services-section h2, .reviews-section h2 { font-size: 28px !important; }
 
   .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 30px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+    text-align: center !important;
   }
+
   .footer-info, .footer-contacts {
-    align-items: center;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
+
   .social-buttons {
-    justify-content: center;
+    justify-content: center !important;
   }
 }
     </style>
@@ -760,7 +812,7 @@ body {
     <section class="hero">
       <div class="hero-content">
         <h1>Качественная печать фото в Разумном</h1>
-        <p>Профессиональный копицентр, фотоуслуги и широкоформатная печать в ТЦ «Амбар». Срочные заказы от 20 минут.</p>
+        <p>Профессиональный копицентр, фотоуслуги и широкоформатная печать в ТЦ «Амбар». Срочные заказы от 20 минут на современном оборудовании.</p>
         <a href="#services" class="btn-main">Смотреть цены</a>
       </div>
     </section>
@@ -795,6 +847,7 @@ body {
       <p class="section-subtitle">Выберите категорию, чтобы посмотреть базовую стоимость</p>
 
       <div class="tabs-container">
+        <div class="tab-slider"></div>
         <button class="tab-btn active" data-tab="photo-docs">📸 Фото и Документы</button>
         <button class="tab-btn" data-tab="print-copy">🖨️ Печать и Копирование</button>
         <button class="tab-btn" data-tab="promo-canvas">🎨 Холсты и Таблички</button>
@@ -813,12 +866,12 @@ body {
           <tbody>
             <tr>
               <td class="service-name">Фото на документы <span class="badge badge-new">Популярно</span></td>
-              <td>Срочное изготовление фотографий на любые документы. Быстро, качественно, с бесплатной ретушью!</td>
+              <td>Срочное изготовление фотографий на любые документы: паспорт, визы, водительское удостоверение и многое другое. Быстро, качественно, с бесплатной ретушью! Соответствие всем требованиям государственных органов.</td>
               <td class="service-price">400 ₽</td>
             </tr>
             <tr>
               <td class="service-name">Брошюровка и переплет</td>
-              <td>Скрепление листов в аккуратный документ. Подходит для курсовых, дипломов, отчетов.</td>
+              <td>Скрепление листов в аккуратный документ. Подходит для курсовых, дипломов, отчетов, презентаций и других многостраничных материалов.</td>
               <td class="service-price">180 ₽</td>
             </tr>
           </tbody>
@@ -838,22 +891,22 @@ body {
           <tbody>
             <tr>
               <td class="service-name">Печать фотографий</td>
-              <td>Качественная фотопечать любых форматов на матовой и глянцевой бумаге.</td>
+              <td>Качественная фотопечать любых форматов! Цена рассчитывается индивидуально и зависит от количества фотографий в тираже и выбранного типа бумаги (матовая, глянцевая, премиум). Большие тиражи — большие скидки!</td>
               <td class="service-price">от 10 ₽</td>
             </tr>
             <tr>
               <td class="service-name">Ксерокопия и сканирование</td>
-              <td>Ксерокопия, печать, сканирование документов А4. Быстро и качественно!</td>
+              <td>Ксерокопия (10 руб/страница), печать, сканирование. Быстро и качественно!</td>
               <td class="service-price">15 ₽</td>
             </tr>
             <tr>
               <td class="service-name">Визитки (от 100 шт.)</td>
-              <td>Изготовление визиток, минимальный тираж от 100 шт. Односторонние и двухсторонние.</td>
+              <td>Изготовление визиток, минимальный тираж от 100 шт. Стоимость за 1 шт.: 4 руб. (односторонняя), 6 руб. (двухсторонняя).</td>
               <td class="service-price">от 4 ₽</td>
             </tr>
             <tr>
               <td class="service-name">Широкоформатная печать</td>
-              <td>Печать на самоклеящейся пленке, холсте, постерной бумаге.</td>
+              <td>Качественная широкоформатная печать на различных материалах: самоклеящаяся пленка, холст, бумага и многое другое! Цена рассчитывается индивидуально и зависит от выбранного материала и размера печати.</td>
               <td class="service-price">от 300 ₽</td>
             </tr>
           </tbody>
@@ -873,9 +926,9 @@ body {
           <tbody>
             <tr class="accordion-toggle" id="canvas-trigger">
               <td class="service-name">Печать на холсте <span class="badge badge-hit">Хит</span></td>
-              <td>Фото на холсте за 1 час! Превратите ваши любимые фотографии в произведения искусства.</td>
+              <td>Фото на холсте за 1 час! Превратите ваши любимые фотографии в произведения искусства. Цена зависит от размера холста и сложности обработки. Замена фонда и ретушь — по вашему желанию!</td>
               <td class="service-price">
-                <div style="display: inline-flex; align-items: center;">
+                <div style="display: inline-flex; align-items: center; justify-content: flex-end; width: 100%;">
                   <span>от 700 ₽</span><span class="arrow-icon"></span>
                 </div>
               </td>
@@ -895,12 +948,12 @@ body {
 
             <tr>
               <td class="service-name">Плоттерная резка</td>
-              <td>Точная вырезка изображений и надписей из самоклеящейся пленки.</td>
+              <td>Точная вырезка изображений и надписей из самоклеящейся пленки. Идеально для рекламы, оформления витрин, стендов, автомобилей и многого другого. Быстро, качественно, по вашим макетам.</td>
               <td class="service-price">от 200 ₽</td>
             </tr>
             <tr>
               <td class="service-name">Таблички</td>
-              <td>Изготавливаем стильные и качественные таблички для офисов, магазинов, адресные указатели.</td>
+              <td>Создайте профессиональный имидж вашего бизнеса! Изготавливаем стильные и качественные таблички для офисов, магазинов, ресторанов. Адресные таблички, кабинетные таблички, навигационные указатели, рекламные вывески. Разработаем индивидуальный дизайн.</td>
               <td class="service-price">150 ₽</td>
             </tr>
           </tbody>
@@ -908,19 +961,19 @@ body {
       </div>
     </section>
 
-    <!-- Адаптированная галерея под GitHub (папка img) -->
+    <!-- Относительные пути картинок под репозиторий GitHub -->
     <section id="gallery" class="gallery-section">
       <h2>Галерея наших работ</h2>
       <p class="section-subtitle">Примеры выполненных заказов и готовой продукции</p>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="./img/photo1.jpg" alt="Работа 1" /></div>
-        <div class="gallery-item"><img src="./img/photo2.jpg" alt="Работа 2" /></div>
-        <div class="gallery-item"><img src="./img/photo3.jpg" alt="Работа 3" /></div>
-        <div class="gallery-item"><img src="./img/photo4.jpg" alt="Работа 4" /></div>
-        <div class="gallery-item"><img src="./img/photo5.jpg" alt="Работа 5" /></div>
-        <div class="gallery-item"><img src="./img/photo6.jpg" alt="Работа 6" /></div>
-        <div class="gallery-item"><img src="./img/photo7.jpg" alt="Работа 7" /></div>
-        <div class="gallery-item"><img src="./img/photo8.jpg" alt="Работа 8" /></div>
+        <div class="gallery-item"><img src="./img/photo1.jpg" alt="Печать фотографий и ретушь" /></div>
+        <div class="gallery-item"><img src="./img/photo2.jpg" alt="Печать портретов на холсте" /></div>
+        <div class="gallery-item"><img src="./img/photo3.jpg" alt="Изготовление визиток и флаеров" /></div>
+        <div class="gallery-item"><img src="./img/photo4.jpg" alt="Широкоформатная печать баннеров" /></div>
+        <div class="gallery-item"><img src="./img/photo5.jpg" alt="Фото на документы" /></div>
+        <div class="gallery-item"><img src="./img/photo6.jpg" alt="Печать на сувенирах" /></div>
+        <div class="gallery-item"><img src="./img/photo7.jpg" alt="Плоттерная резка наклейки" /></div>
+        <div class="gallery-item"><img src="./img/photo8.jpg" alt="Дизайн рекламной полиграфии" /></div>
       </div>
     </section>
 
@@ -933,22 +986,26 @@ body {
       </a>
       <div class="reviews-grid">
         <div class="review-card">
-          <p class="review-text">«Самый лучший печатный цех в Разумном! Михаил очень вежливый и приятный. Качество фоток суперское — яркие и не выцветают...»</p>
+          <p class="review-text">«Самый лучший печатный цех в Разумном! Михаил очень вежливый и приятный. Фотографии печатаю только там, качество фоток суперское — яркие и не выцветают. Делала там еще портрет на холсте, была в восторге, хочу заказать еще. И цены приятные. Всегда всё очень быстро, всё готово вовремя. Я советую всем!»</p>
           <div class="review-meta"><span class="review-author">В Б</span><span class="review-date">Яндекс Карты</span></div>
         </div>
         <div class="review-card">
-          <p class="review-text">«Замечательное место, прекрасный специалист своего дела💖 Собрали и распечатали журнал за 1 день. Быстро и красиво💕»</p>
+          <p class="review-text">«Замечательное место, прекрасный специалист своего дела💖💖💖Думала что уже не успею с подарком, но тут собрали и распечатали журнал за 1 день. Быстро и красиво💕»</p>
           <div class="review-meta"><span class="review-author">Алеся Лихачева</span><span class="review-date">Яндекс Карты</span></div>
         </div>
+        <div class="review-card">
+          <p class="review-text">«Наконец-то в Разумном есть место где можно напечатать фото, сделать ксерокопию, сфотографироваться на паспорт. Местоположение очень удобное. Все качественно и быстро! Фото печатать теперь только здесь буду!»</p>
+          <div class="review-meta"><span class="review-author">Яна</span><span class="review-date">Яндекс Карты</span></div>
+        </div>
       </div>
-      <a href="https://yandex.ru/maps/org/pechatny_tsekh/223609206861?tab=reviews" target="_blank" class="btn-all-reviews">Читать все отзывы</a>
+      <a href="https://yandex.ru/maps/org/pechatny_tsekh/223609206861?tab=reviews" target="_blank" class="btn-all-reviews">Читать все отзывы на Яндекс Картах</a>
     </section>
 
     <footer id="contacts" class="footer">
       <div class="footer-content">
         <div class="footer-info">
           <h2>Печатный Цех</h2>
-          <p>Ваш надежный партнер в мире полиграфии. Скидывайте файлы заранее в мессенджеры!</p>
+          <p>Ваш надежный партнер в мире полиграфии. Скидывайте файлы заранее в мессенджеры или соцсети, чтобы забрать готовый заказ без очереди!</p>
           <div class="social-buttons">
             <a href="https://t.me/ambar_31" target="_blank" class="btn-social btn-tg">💬 Telegram</a>
             <a href="https://wa.me/79102717131" target="_blank" class="btn-social btn-wa">💬 WhatsApp</a>
@@ -968,31 +1025,62 @@ body {
     </footer>
 
     <script>
-      // Железобетонный скрипт табов, работающий на любых мобилках
+      function updateSlider() {
+        const activeBtn = document.querySelector('.tab-btn.active');
+        const slider = document.querySelector('.tab-slider');
+        const container = document.querySelector('.tabs-container');
+        
+        if (activeBtn && slider && window.innerWidth > 768) {
+          const rect = activeBtn.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          
+          slider.style.width = `${rect.width}px`;
+          slider.style.left = `${rect.left - containerRect.left}px`;
+        }
+      }
+
+      // Переключение табов без багов на мобилках
       document.querySelectorAll('.tab-btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
+        button.addEventListener('click', function() {
           const tabId = this.getAttribute('data-tab');
           
           document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
           this.classList.add('active');
+          
+          if (window.innerWidth > 768) {
+            updateSlider();
+          }
           
           document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
           document.getElementById(tabId).classList.add('active');
         });
       });
 
-      // Переключалка аккордеона
+      // Переключалка аккордеона через classList (жесткий фикс отображения таблиц)
       const trigger = document.getElementById('canvas-trigger');
-      if(trigger) {
+      if (trigger) {
         trigger.addEventListener('click', function() {
           this.classList.toggle('open');
-          const details = document.getElementById('canvas-sizes-details');
-          if(details) {
-            details.classList.toggle('open');
+          const detailsRow = document.getElementById('canvas-sizes-details');
+          if (detailsRow) {
+            detailsRow.classList.toggle('open');
           }
         });
       }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth > 768) updateSlider();
+      });
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          updateSlider();
+        } else {
+          const detailsRow = document.getElementById('canvas-sizes-details');
+          if (detailsRow) detailsRow.classList.remove('open');
+          if (trigger) trigger.classList.remove('open');
+        }
+      });
     </script>
   </body>
 </html>
