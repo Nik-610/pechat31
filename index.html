@@ -25,7 +25,9 @@ body {
 
 /* ==========================================================================
      2. ШАПКА (HEADER)
-     ========================================================================== */
+     ========================================================================= */
+
+/* Основной контейнер шапки */
 .header {
   display: flex;
   justify-content: space-between;
@@ -36,61 +38,73 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 90px;
+  height: 90px;        /* Фиксированная высота шапки */
+  overflow: hidden;    /* Жестко обрезает всё, что вылезает за пределы 90px */
+  box-sizing: border-box;
 }
 
+/* Контейнер логотипа (ссылка) */
 .logo-container {
   display: flex;
   align-items: center;
   text-decoration: none;
   width: 110px;
   height: 82px;
+  align-self: flex-start; /* Прижимаем к верху, чтобы низ обрезался */
+  margin-top: 5px;        /* Отступ сверху для идеального позиционирования */
 }
 
+/* Само изображение логотипа */
 .logo-img {
   width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-.nav {
+/* Блок с навигационными ссылками */
+.nav-links {
   display: flex;
-  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav a {
+/* Ссылки в меню */
+.nav-links a {
   text-decoration: none;
-  color: #555;
-  margin-right: 25px;
-  font-weight: 600;
-  transition: color 0.3s;
-  white-space: nowrap;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: #ec008c;
+.nav-links a:hover {
+  color: #007bff; /* Цвет при наведении (можешь поменять под свой бренд) */
 }
 
-.header-buttons {
-  display: flex;
-  align-items: center;
-}
-
-.btn-call {
-  text-decoration: none;
-  background: #222;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-  white-space: nowrap;
+/* Кнопка "Написать в Telegram" */
+.tg-button {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  background-color: #212121;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-call:hover {
-  background: #00aeef;
+.tg-button:hover {
+  background-color: #333333;
+  transform: translateY(-1px);
+}
+
+.tg-button:active {
+  transform: translateY(0);
 }
 
 /* ==========================================================================
