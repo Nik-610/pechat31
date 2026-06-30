@@ -659,6 +659,13 @@ body {
   color: #ccc;
 }
 
+/* Сброс синего цвета для номеров телефонов на мобилках */
+.footer-contacts p a, 
+.footer-contacts p {
+  color: #ccc !important;
+  text-decoration: none !important;
+}
+
 .map-container {
   width: 100%;
   height: 230px;
@@ -697,6 +704,7 @@ body {
     text-align: center !important;
     height: auto !important;
     position: sticky !important;
+    background: #ffffff !important; /* Убираем прозрачность, контент не просвечивает сверху */
   }
 
   .logo-container { 
@@ -770,6 +778,7 @@ body {
 
   .price-table thead { display: none !important; }
 
+  /* Применяем flex только к строкам, которые НЕ являются деталями аккордеона */
   .price-table tbody tr:not(.accordion-details) {
     display: flex !important;
     justify-content: space-between !important;
@@ -782,10 +791,15 @@ body {
   .price-table td:last-child { text-align: right !important; }
   .service-price { font-size: 16px !important; }
 
+  /* Специфичные стили для скрытой строки на мобилке */
   .price-table tbody tr.accordion-details {
+    display: none !important; /* Гарантируем закрытие при старте */
     margin-top: -12px !important;
     margin-bottom: 5px !important;
     padding: 0 20px !important;
+    background: #fafafa !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .canvas-sizes-list { padding: 0 0 15px 0 !important; }
@@ -826,9 +840,9 @@ body {
   <body>
     <!-- Шапка сайта -->
     <header class="header">
-    <a href="#" class="logo-container">
-      <img src="./img/logo.png" alt="Печатный Цех" class="logo-img" />
-    </a>
+      <a href="#" class="logo-container">
+        <img src="./img/logo.png" alt="Печатный Цех" class="logo-img" />
+      </a>
       <nav class="nav">
         <a href="#services">Услуги</a>
         <a href="#gallery">Галерея</a>
@@ -1044,7 +1058,6 @@ body {
         Примеры выполненных заказов и готовой продукции
       </p>
       <div class="gallery-grid">
-        <!-- Относительные web-пути, чтобы всё работало на GitHub -->
         <div class="gallery-item"><img src="./img/photo1.jpg" alt="Печать фотографий и ретушь" /></div>
         <div class="gallery-item"><img src="./img/photo2.jpg" alt="Печать портретов на холсте" /></div>
         <div class="gallery-item"><img src="./img/photo3.jpg" alt="Изготовление визиток и флаеров" /></div>
@@ -1123,7 +1136,7 @@ body {
           <h3>Контакты</h3>
           <p>📍 пгт. Разумное, проспект Ленина, 8 (ТЦ «Амбар»)</p>
           <p>⏱️ Ежедневно с 09:00 до 19:00</p>
-          <p>📞 Тел: +7 (910) 271-71-31</p>
+          <p>📞 Тел: <a href="tel:+79102717131">+7 (910) 271-71-31</a></p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1167,23 +1180,20 @@ body {
         element.classList.toggle('open');
         const detailsRow = document.getElementById('canvas-sizes-details');
         
-        if (window.innerWidth <= 768) {
-          if (detailsRow.style.display === 'block') {
-            detailsRow.style.display = 'none';
-          } else {
-            detailsRow.style.display = 'block';
-          }
+        // Переключение видимости с учетом !important в CSS через style.setProperty
+        if (element.classList.contains('open')) {
+          detailsRow.style.setProperty('display', 'block', 'important');
         } else {
-          if (detailsRow.style.display === 'table-row') {
-            detailsRow.style.display = 'none';
-          } else {
-            detailsRow.style.display = 'table-row';
-          }
+          detailsRow.style.setProperty('display', 'none', 'important');
         }
       }
 
       window.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth > 768) updateSlider();
+        
+        // Гарантируем изначальное скрытие при первой загрузке скрипта
+        const detailsRow = document.getElementById('canvas-sizes-details');
+        if (detailsRow) detailsRow.style.setProperty('display', 'none', 'important');
       });
       
       window.addEventListener('resize', () => {
@@ -1191,7 +1201,7 @@ body {
           updateSlider();
         }
         const detailsRow = document.getElementById('canvas-sizes-details');
-        if (detailsRow) detailsRow.style.display = 'none';
+        if (detailsRow) detailsRow.style.setProperty('display', 'none', 'important');
         document.querySelectorAll('.accordion-toggle').forEach(el => el.classList.remove('open'));
       });
     </script>
