@@ -37,7 +37,7 @@ body {
   top: 0;
   z-index: 100;
   height: 90px;
-  overflow: hidden; /* Обрезает всё, что выходит за пределы 90px шапки */
+  overflow: hidden;
 }
 
 .logo-container {
@@ -48,7 +48,7 @@ body {
   height: 82px;
   overflow: hidden;
   position: relative;
-  align-self: flex-start; /* Прижимаем кверху */
+  align-self: flex-start;
   margin-top: 0px; 
 }
 
@@ -56,7 +56,7 @@ body {
   width: 110px;
   height: auto;
   position: absolute;
-  top: -15px; /* Сдвигаем картинку выше, чтобы обрезать её верхнюю часть */
+  top: -15px;
   left: 0;
 }
 
@@ -368,7 +368,7 @@ body {
 .badge-hit { background: #fff200; color: #000; }
 .badge-new { background: #00aeef; color: #fff; }
 
-/* Интерактивная стрелка аккордеона */
+/* СТИЛИ ДЛЯ АККОРДЕОНА */
 .accordion-toggle {
   cursor: pointer;
 }
@@ -392,21 +392,23 @@ body {
   top: 2px;
 }
 
+/* Изначально скрыто на всех экранах */
 .price-table tbody tr.accordion-details {
-  display: none !important;
+  display: none;
 }
 
-.price-table tbody tr.accordion-details:not([style*="display: none"]) {
-  display: block !important;
-  width: 100% !important;
-  padding: 0 25px !important;
-  border: none !important;
-  background: #fafafa !important;
+/* Показываем детали только при наличии класса .show */
+.price-table tbody tr.accordion-details.show {
+  display: block;
+  width: 100%;
+  padding: 0 25px;
+  border: none;
+  background: #fafafa;
 }
 
 .price-table tbody tr.accordion-details td {
-  display: block !important;
-  width: 100% !important;
+  display: block;
+  width: 100%;
 }
 
 .canvas-sizes-list {
@@ -428,6 +430,7 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.01);
   transition: all 0.2s ease;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .size-row:hover {
@@ -659,7 +662,6 @@ body {
   color: #ccc;
 }
 
-/* Сброс синего цвета для номеров телефонов на мобилках */
 .footer-contacts p a, 
 .footer-contacts p {
   color: #ccc !important;
@@ -694,7 +696,7 @@ body {
 }
 
 /* ==========================================================================
-     9. МОБИЛЬНАЯ АДАПТИВНОСТЬ
+     9. МОБИЛЬНАЯ АДАПТИВНОСТЬ (МЕДИА-ЗАПРОСЫ)
      ========================================================================== */
 @media (max-width: 768px) {
   .header {
@@ -704,7 +706,7 @@ body {
     text-align: center !important;
     height: auto !important;
     position: sticky !important;
-    background: #ffffff !important; /* Убираем прозрачность, контент не просвечивает сверху */
+    background: #ffffff !important;
   }
 
   .logo-container { 
@@ -778,7 +780,7 @@ body {
 
   .price-table thead { display: none !important; }
 
-  /* Применяем flex только к строкам, которые НЕ являются деталями аккордеона */
+  /* Применяем flex ко всем обычным строкам прайса */
   .price-table tbody tr:not(.accordion-details) {
     display: flex !important;
     justify-content: space-between !important;
@@ -791,21 +793,34 @@ body {
   .price-table td:last-child { text-align: right !important; }
   .service-price { font-size: 16px !important; }
 
-  /* Специфичные стили для скрытой строки на мобилке */
-  .price-table tbody tr.accordion-details {
-    display: none !important; /* Гарантируем закрытие при старте */
+  /* ФИКС МОБИЛЬНОГО АККОРДЕОНА: растягиваем плашки во всю ширь */
+  .price-table tbody tr.accordion-details.show {
+    display: block !important;
+    width: 100% !important;
     margin-top: -12px !important;
     margin-bottom: 5px !important;
-    padding: 0 20px !important;
-    background: #fafafa !important;
-    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
     box-shadow: none !important;
+    border: none !important;
   }
 
-  .canvas-sizes-list { padding: 0 0 15px 0 !important; }
-  .size-row { padding: 12px 15px !important; }
-  .size-name-text { font-size: 14px !important; }
-  .size-price-text { font-size: 15px !important; }
+  .price-table tbody tr.accordion-details.show td {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .canvas-sizes-list { 
+    padding: 10px 0 15px 0 !important; 
+    width: 100% !important;
+  }
+
+  .size-row { 
+    padding: 16px 20px !important; 
+    width: 100% !important;
+  }
 
   .services-section, .gallery-section, .reviews-section { padding: 50px 5% !important; }
   .services-section h2, .reviews-section h2 { font-size: 28px !important; }
@@ -995,12 +1010,13 @@ body {
             </tr>
           </thead>
           <tbody>
+            <!-- Кнопка аккордеона -->
             <tr class="accordion-toggle" onclick="toggleAccordion(this)">
               <td class="service-name">
                 Печать на холсте
                 <span class="badge badge-hit">Хит</span>
               </td>
-              <td>Фото на холсте за 1 час! Превратите ваши любимые фотографии в произведения искусства. Цена зависит от размера холста и сложности обработки. Замена фонда и ретушь — по вашему желанию!</td>
+              <td>Фото на холсте за 1 час! Превратите ваши любимые фотографии в произведения искусства. Цена зависит от размера холста и сложности обработки. Замена фона и ретушь — по вашему желанию!</td>
               <td class="service-price">
                 <div style="display: inline-flex; align-items: center; justify-content: flex-end; width: 100%;">
                   <span>от 700 ₽</span><span class="arrow-icon"></span>
@@ -1008,6 +1024,7 @@ body {
               </td>
             </tr>
             
+            <!-- Скрытые плашки размеров -->
             <tr class="accordion-details" id="canvas-sizes-details">
               <td colspan="3">
                 <div class="canvas-sizes-list">
@@ -1028,7 +1045,7 @@ body {
                     <span class="size-price-text">2 100 ₽</span>
                   </div>
                   <div class="size-row">
-                    <span class="size-name-text">Размер 60×80 см</span>
+                    <span class="size-name-text">Раз size 60×80 см</span>
                     <span class="size-price-text">2 600 ₽</span>
                   </div>
                 </div>
@@ -1146,6 +1163,7 @@ body {
 
     <!-- Скрипты -->
     <script>
+      // Функция обновления ползунка табов (для десктопа)
       function updateSlider() {
         const activeBtn = document.querySelector('.tab-btn.active');
         const slider = document.querySelector('.tab-slider');
@@ -1160,6 +1178,7 @@ body {
         }
       }
 
+      // Переключение вкладок (табов)
       document.querySelectorAll('.tab-btn').forEach(button => {
         button.addEventListener('click', function() {
           const tabId = this.getAttribute('data-tab');
@@ -1176,33 +1195,31 @@ body {
         });
       });
 
+      // Логика аккордеона холстов (изолированная от ложных ресайзов скролла)
       function toggleAccordion(element) {
         element.classList.toggle('open');
         const detailsRow = document.getElementById('canvas-sizes-details');
         
-        // Переключение видимости с учетом !important в CSS через style.setProperty
-        if (element.classList.contains('open')) {
-          detailsRow.style.setProperty('display', 'block', 'important');
-        } else {
-          detailsRow.style.setProperty('display', 'none', 'important');
+        if (detailsRow) {
+          detailsRow.classList.toggle('show');
         }
       }
 
+      // При первой загрузке страницы
       window.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth > 768) updateSlider();
-        
-        // Гарантируем изначальное скрытие при первой загрузке скрипта
-        const detailsRow = document.getElementById('canvas-sizes-details');
-        if (detailsRow) detailsRow.style.setProperty('display', 'none', 'important');
       });
       
+      // Следим за экраном ТОЛЬКО ради табов, аккордеон скролл мобилки больше не сбросит!
+      let lastWidth = window.innerWidth;
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-          updateSlider();
+        if (window.innerWidth !== lastWidth) {
+          lastWidth = window.innerWidth;
+          
+          if (window.innerWidth > 768) {
+            updateSlider();
+          }
         }
-        const detailsRow = document.getElementById('canvas-sizes-details');
-        if (detailsRow) detailsRow.style.setProperty('display', 'none', 'important');
-        document.querySelectorAll('.accordion-toggle').forEach(el => el.classList.remove('open'));
       });
     </script>
   </body>
