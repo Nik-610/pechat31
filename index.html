@@ -6,6 +6,9 @@
     <link rel="shortcut icon" href="./img/logo.png" type="image/png" />
     <title>Печатный Цех | Полиграфия, фото и копицентр в Разумном</title>
     <style>
+/* ==========================================================================
+     1. ОБЩИЕ СТИЛИ И СБРОСЫ
+     ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +22,9 @@ body {
   color: #222;
 }
 
+/* ==========================================================================
+     2. ШАПКА (HEADER)
+     ========================================================================== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -91,6 +97,9 @@ body {
   color: #ffffff;
 }
 
+/* ==========================================================================
+     3. БЛОК HERO (Сочный Жёлтый + Ультрамариновый Акцент)
+     ========================================================================== */
 .hero {
   position: relative;
   padding: 100px 10%;
@@ -116,7 +125,7 @@ body {
 .hero-content {
   flex: 1;
   text-align: left;
-  margin-left: -30px; 
+  margin-left: -30px; /* Сдвигает весь текстовый блок влево на 40 пикселей */
 }
 
 .hero-title {
@@ -129,6 +138,7 @@ body {
   text-transform: uppercase;
 }
 
+/* Ультрамариновая плашка (можно будет перекрасить здесь) */
 .hero-subtitle {
   font-size: 22px;
   font-weight: 800;
@@ -152,6 +162,7 @@ body {
   font-weight: 600;
 }
 
+/* Строгая чёрная кнопка по твоей просьбе */
 .btn-main {
   display: inline-block;
   text-decoration: none;
@@ -165,6 +176,7 @@ body {
   border: 3px solid #111111;
 }
 
+/* При наведении уходит в ультрамарин для поддержки стиля, не сливаясь с жёлтым */
 .btn-main:hover {
   background: #202020;
   border-color: #202020;
@@ -172,6 +184,7 @@ body {
   transform: translateY(-3px);
 }
 
+/* Контейнер для анимации слайдов */
 .hero-image-wrapper {
   flex: 1;
   display: flex;
@@ -183,19 +196,27 @@ body {
   height: 400px;
 }
 
+/* Базовый стиль каждого изображения */
 .hero-slider-img {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   border-radius: 12px;
   border: 4px solid #111;
+
   opacity: 0;
+
   animation: heroCrossfade 12s linear infinite;
+
   will-change: opacity;
 }
 
+/* Задержки */
 .hero-slider-img:nth-child(1) {
   animation-delay: 0s;
 }
@@ -208,14 +229,33 @@ body {
   animation-delay: 8s;
 }
 
+/* Плавное появление и исчезновение */
 @keyframes heroCrossfade {
-  0% { opacity: 0; z-index: 1; }
-  5% { opacity: 1; z-index: 2; }
-  33.33% { opacity: 1; z-index: 2; }
-  38.33% { opacity: 0; z-index: 1; }
-  100% { opacity: 0; z-index: 1; }
-}
 
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  38% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+/* ==========================================================================
+     4. РАЗДЕЛ УСЛУГ (Сплошной список)
+     ========================================================================== */
 .services-section {
   padding: 80px 10%;
   background: #fffce6;
@@ -293,10 +333,13 @@ body {
   box-shadow: 0 2px 6px rgba(255, 204, 0, 0.1);
 }
 
+/* ==========================================================================
+     5. ГАЛЕРЕЯ РАБОТ (Плотный, насыщенный стиль под Hero)
+     ========================================================================== */
 .gallery-section {
   padding: 80px 10%;
   text-align: center;
-  background-color: #ffcc00; 
+  background-color: #ffcc00; /* Сделали насыщенным в цвет Hero */
   background-image: linear-gradient(
     45deg, 
     rgba(17, 17, 17, 0.08) 25%, 
@@ -353,6 +396,9 @@ body {
   transform: scale(1.08);
 }
 
+/* ==========================================================================
+     6. БЛОК ОТЗЫВОВ (Без изменений)
+     ========================================================================== */
 .reviews-section {
   padding: 80px 10%;
   background: #fffce6; 
@@ -471,6 +517,9 @@ body {
   color: #222;
 }
 
+/* ==========================================================================
+     7. ПОДВАЛ И КОНТАКТЫ
+     ========================================================================== */
 .footer {
   background: linear-gradient(180deg, #ffcc00 7%, rgb(0, 0, 0) 40%);
   color: #fff;
@@ -520,7 +569,7 @@ body {
 }
 
 .btn-max { 
-  background: #6371e4;
+  background: #6371e4; 
 }
 
 .btn-vk { 
@@ -562,6 +611,9 @@ body {
   color: #ffcc00;
 }
 
+/* ==========================================================================
+     8. МОБИЛЬНАЯ АДАПТИВНОСТЬ
+     ========================================================================== */
 @media (max-width: 992px) {
   .hero {
     padding: 40px 5%;
@@ -658,10 +710,11 @@ body {
   </head>
   <body>
 
+    <!-- Шапка сайта -->
     <header class="header">
-      <a href="#" class="logo-container">
-        <img src="./img/logo.png" alt="Печатный Цех" class="logo-img" />
-      </a>
+    <a href="#" class="logo-container">
+      <img src="./img/logo.png" alt="Печатный Цех" class="logo-img" />
+    </a>
       <nav class="nav">
         <a href="#services">Услуги</a>
         <a href="#gallery">Галерея</a>
@@ -673,6 +726,7 @@ body {
       </div>
     </header>
 
+    <!-- Главный экран (Hero) -->
     <section class="hero">
       <div class="hero-container">
         <div class="hero-content">
@@ -695,6 +749,7 @@ body {
       </div>
     </section>
 
+    <!-- Сплошной прайс-лист -->
     <section id="services" class="services-section">
       <h2>Наши услуги и цены</h2>
       <p class="section-subtitle">
@@ -796,6 +851,7 @@ body {
       </div>
     </section>
 
+    <!-- Галерея с насыщенным фоном -->
     <section id="gallery" class="gallery-section">
       <h2>Галерея наших работ</h2>
       <p class="section-subtitle">
@@ -813,6 +869,7 @@ body {
       </div>
     </section>
 
+    <!-- Блок отзывов -->
     <section id="reviews" class="reviews-section">
       <h2>Отзывы наших клиентов</h2>
       <p class="section-subtitle">
@@ -861,6 +918,7 @@ body {
       </a>
     </section>
 
+    <!-- Подвал -->
     <footer id="contacts" class="footer">
       <div class="footer-content">
         <div class="footer-info">
