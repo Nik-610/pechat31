@@ -3,13 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Логотип во вкладке (Favicon) -->
     <link rel="shortcut icon" href="./img/logo.png" type="image/png" />
     <title>Печатный Цех | Полиграфия, фото и копицентр в Разумном</title>
     <style>
-/* ==========================================================================
-     1. ОБЩИЕ СТИЛИ И СБРОСЫ
-     ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -23,21 +19,17 @@ body {
   color: #222;
 }
 
-/* ==========================================================================
-     2. ШАПКА (HEADER)
-     ========================================================================== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 10%;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eaeaea; 
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 90px;
-  overflow: hidden;
+  height: 94px;
 }
 
 .logo-container {
@@ -48,15 +40,13 @@ body {
   height: 82px;
   overflow: hidden;
   position: relative;
-  align-self: flex-start;
-  margin-top: 0px; 
 }
 
 .logo-img {
   width: 110px;
   height: auto;
   position: absolute;
-  top: -15px;
+  top: -10px;
   left: 0;
 }
 
@@ -75,7 +65,7 @@ body {
 }
 
 .nav a:hover {
-  color: #ec008c;
+  color: #ffcc00;
 }
 
 .header-buttons {
@@ -83,378 +73,255 @@ body {
   align-items: center;
 }
 
-.btn-call {
+.btn-max-header {
   text-decoration: none;
-  background: #222;
-  color: #fff;
+  background: #ffcc00;
+  color: #111111;
   padding: 12px 24px;
   border-radius: 6px;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
 }
 
-.btn-call:hover {
-  background: #00aeef;
+.btn-max-header:hover {
+  background: #6371e4;
+  color: #ffffff;
 }
 
-/* ==========================================================================
-     3. ГЛАВНЫЙ БЛОК (HERO SECTION)
-     ========================================================================== */
 .hero {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)),
-    url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920")
-      no-repeat center center/cover;
+  position: relative;
   padding: 100px 10%;
-  text-align: center;
+  background: #ffcc00; 
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid #111111;
+  overflow: hidden;
 }
 
-.hero h1 {
-  font-size: 46px;
-  margin-bottom: 15px;
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+  margin-left: -30px; 
+}
+
+.hero-title {
+  font-size: 76px;
+  font-weight: 900;
+  color: #111111;
+  line-height: 1.0;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: 22px;
   font-weight: 800;
+  background: #0052ff; 
+  color: #ffffff;     
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 82, 255, 0.2);
 }
 
-.hero p {
-  font-size: 18px;
-  color: #444;
-  max-width: 700px;
-  margin: 0 auto 35px;
+.hero-description {
+  font-size: 20px;
+  color: #1a1a1a;
+  margin-bottom: 40px;
   line-height: 1.6;
+  max-width: 550px;
+  font-weight: 600;
 }
 
 .btn-main {
+  display: inline-block;
   text-decoration: none;
-  background: #222;
-  color: #fff;
-  padding: 16px 36px;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s;
+  background: #111111;
+  color: #ffffff;
+  padding: 18px 45px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 3px solid #111111;
 }
 
 .btn-main:hover {
-  background: #000;
-  transform: translateY(-2px);
-}
-
-/* ==========================================================================
-     4. БЛОК ПРЕИМУЩЕСТВ
-     ========================================================================== */
-.features-section {
-  padding: 60px 10%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.feature-item {
-  text-align: center;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 8px;
-  transition: transform 0.3s;
-}
-
-.feature-item:hover {
+  background: #202020;
+  border-color: #202020;
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
-.feature-icon {
-  font-size: 42px;
-  margin-bottom: 15px;
+.hero-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
 }
 
-.feature-item h4 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  font-weight: 700;
+.hero-slider-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 4px solid #111;
+  opacity: 0;
+  animation: heroCrossfade 12s linear infinite;
+  will-change: opacity;
 }
 
-.feature-item p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.4;
+.hero-slider-img:nth-child(1) {
+  animation-delay: 0s;
 }
 
-/* ==========================================================================
-     5. ИНТЕРАКТИВНЫЙ ПРАЙС-ЛИСТ И ТАБЫ
-     ========================================================================== */
+.hero-slider-img:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.hero-slider-img:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes heroCrossfade {
+  0% { opacity: 0; z-index: 1; }
+  5% { opacity: 1; z-index: 2; }
+  33.33% { opacity: 1; z-index: 2; }
+  38.33% { opacity: 0; z-index: 1; }
+  100% { opacity: 0; z-index: 1; }
+}
+
 .services-section {
-  padding: 90px 10%;
-  text-align: center;
-  background: #fafafa;
+  padding: 80px 10%;
+  background: #fffce6;
 }
 
 .services-section h2 {
-  font-size: 38px;
+  font-size: 36px;
   margin-bottom: 10px;
   font-weight: 800;
-  color: #111;
+  text-align: center;
 }
 
 .section-subtitle {
-  color: #666;
+  text-align: center;
+  color: #64748b;
   margin-bottom: 40px;
   font-size: 16px;
 }
 
-.tabs-container {
-  position: relative;
-  display: inline-flex;
-  background-color: #f0f0f0;
-  border-radius: 50px;
-  padding: 5px;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-  margin-bottom: 40px;
-}
-
-.tab-btn {
-  position: relative;
-  background: none;
-  border: none;
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  outline: none;
-  color: #555;
-  z-index: 2;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.tab-btn.active {
-  color: #000;
-}
-
-.tab-slider {
-  position: absolute;
-  top: 3px;
-  left: 5px;
-  bottom: 3px;
-  background: #ffffff;
-  border: 1px solid #222222;
-  border-radius: 40px;
-  z-index: 1;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.tab-content {
-  display: none;
-  animation: fadeIn 0.4s ease;
-  max-width: 1100px;
+.services-list {
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.price-table {
-  display: block;
-  width: 100%;
-}
-
-.price-table thead {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) 2fr minmax(120px, auto);
-  gap: 30px;
-  padding: 15px 25px;
-  text-align: left;
-}
-
-.price-table th {
-  color: #888;
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.price-table th:last-child {
-  text-align: right;
-}
-
-.price-table tbody {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  width: 100%;
+  gap: 15px;
 }
 
-.price-table tbody tr {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) 2fr minmax(120px, auto);
-  gap: 30px;
+.service-row {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background: #fff;
-  padding: 22px 25px;
+  padding: 20px 25px;
+  background: #f8fafc;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  border: 1px solid #f1f1f1;
+  border: 1px solid #e2e8f0;
   transition: all 0.25s ease;
-  text-align: left;
 }
 
-.price-table tbody tr:not(.accordion-details):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-  background: linear-gradient(90deg, #fff 0%, #fffbdf 100%);
+.service-row:hover {
+  border-color: #ffcc00;
+  background: #fffdf0; 
+  transform: translateY(-1px);
 }
 
-.price-table td {
-  padding: 0;
-  background: none;
-}
-
-.price-table td:first-child {
-  font-weight: 700;
-  color: #111;
-  font-size: 17px;
-  white-space: normal;
-}
-
-.price-table td:last-child {
-  text-align: right;
+.service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
 }
 
 .service-name {
-  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.4;
 }
 
 .service-price {
   font-size: 20px;
   font-weight: 800;
-  color: #000000;
+  color: #111111;
+  background: #ffcc00; 
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid #e5b800;
   white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(255, 204, 0, 0.1);
 }
 
-.badge {
-  font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.badge-hit { background: #fff200; color: #000; }
-.badge-new { background: #00aeef; color: #fff; }
-
-/* СТИЛИ ДЛЯ АККОРДЕОНА */
-.accordion-toggle {
-  cursor: pointer;
-}
-
-.arrow-icon {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid #000;
-  border-bottom: 2px solid #000;
-  transform: rotate(45deg);
-  margin-left: 15px;
-  transition: transform 0.3s ease;
-  transform-origin: center;
-  position: relative;
-  top: -2px;
-}
-
-.accordion-toggle.open .arrow-icon {
-  transform: rotate(-135deg);
-  top: 2px;
-}
-
-/* Изначально скрыто на всех экранах */
-.price-table tbody tr.accordion-details {
-  display: none;
-}
-
-/* Показываем детали только при наличии класса .show */
-.price-table tbody tr.accordion-details.show {
-  display: block;
-  width: 100%;
-  padding: 0 25px;
-  border: none;
-  background: #fafafa;
-}
-
-.price-table tbody tr.accordion-details td {
-  display: block;
-  width: 100%;
-}
-
-.canvas-sizes-list {
-  width: 100%;
-  padding: 10px 0 20px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.size-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  padding: 16px 25px;
-  border-radius: 8px;
-  border: 1px solid #eef0f2;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.01);
-  transition: all 0.2s ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.size-row:hover {
-  border-color: #ddd;
-  background: #fffbdf;
-  transform: translateX(5px);
-}
-
-.size-name-text { font-size: 16px; font-weight: 600; color: #333; }
-.size-price-text { font-size: 18px; font-weight: 800; color: #000; }
-
-/* ==========================================================================
-     6. ГАЛЕРЕЯ РАБОТ
-     ========================================================================== */
 .gallery-section {
   padding: 80px 10%;
-  background: #fff;
   text-align: center;
+  background-color: #ffcc00; 
+  background-image: linear-gradient(
+    45deg, 
+    rgba(17, 17, 17, 0.08) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(17, 17, 17, 0.08) 50%, 
+    rgba(17, 17, 17, 0.08) 75%, 
+    transparent 75%, 
+    transparent
+  );
+  background-size: 40px 40px;
+  border-top: 5px solid #111111; 
+  border-bottom: 5px solid #111111; 
 }
 
 .gallery-section h2 {
   font-size: 36px;
   margin-bottom: 10px;
   font-weight: 800;
+  color: #111111;
+}
+
+.gallery-section .section-subtitle {
+  color: #1a1a1a;
+  font-weight: 600;
 }
 
 .gallery-grid {
@@ -469,7 +336,9 @@ body {
   overflow: hidden;
   border-radius: 8px;
   height: 250px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border: 4px solid #111111; 
+  background-color: #111111;
 }
 
 .gallery-item img {
@@ -484,13 +353,11 @@ body {
   transform: scale(1.08);
 }
 
-/* ==========================================================================
-     7. БЛОК ОТЗЫВОВ
-     ========================================================================== */
 .reviews-section {
   padding: 80px 10%;
-  background: #f4f4f4;
+  background: #fffce6; 
   text-align: center;
+  border-bottom: 4px solid #111111;
 }
 
 .reviews-section h2 {
@@ -512,6 +379,7 @@ body {
   color: #222;
   font-weight: 600;
   transition: transform 0.2s;
+  border: 1px solid #e2e8f0;
 }
 
 .rating-badge:hover {
@@ -541,6 +409,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid #e2e8f0;
 }
 
 .review-card::before {
@@ -586,25 +455,24 @@ body {
 .btn-all-reviews {
   display: inline-block;
   text-decoration: none;
-  background: #222;
+  background: #111111;
   color: #fff;
   padding: 14px 30px;
   border-radius: 6px;
   font-weight: bold;
   font-size: 15px;
-  transition: background 0.2s;
+  transition: all 0.2s;
   margin-top: 20px;
+  border: 2px solid #111111;
 }
 
 .btn-all-reviews:hover {
-  background: #fc3f1d;
+  background: #ffcc00;
+  color: #222;
 }
 
-/* ==========================================================================
-     8. ПОДВАЛ И КОНТАКТЫ
-     ========================================================================== */
 .footer {
-  background: #111;
+  background: linear-gradient(180deg, #ffcc00 7%, rgb(0, 0, 0) 40%);
   color: #fff;
   padding: 70px 10% 25px;
 }
@@ -632,23 +500,36 @@ body {
 .social-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn-social {
   text-decoration: none;
   color: #fff;
-  padding: 10px 15px;
-  border-radius: 4px;
+  padding: 12px 20px;
+  border-radius: 6px;
   font-size: 14px;
   font-weight: bold;
   transition: opacity 0.3s;
+  display: inline-flex;
+  align-items: center;
 }
 
-.btn-social:hover { opacity: 0.9; }
-.btn-tg { background: #0088cc; }
-.btn-wa { background: #25d366; }
-.btn-vk { background: #0077ff; }
+.btn-social:hover { 
+  opacity: 0.9; 
+}
+
+.btn-max { 
+  background: #6371e4;
+}
+
+.btn-vk { 
+  background: #0077ff; 
+}
+
+.btn-tg {
+  background: #229ED9;
+}
 
 .footer-contacts h3 {
   font-size: 18px;
@@ -660,20 +541,6 @@ body {
 .footer-contacts p {
   margin-bottom: 15px;
   color: #ccc;
-}
-
-.footer-contacts p a, 
-.footer-contacts p {
-  color: #ccc !important;
-  text-decoration: none !important;
-}
-
-.map-container {
-  width: 100%;
-  height: 230px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #333;
 }
 
 .footer-bottom {
@@ -692,12 +559,45 @@ body {
 
 .footer-bottom a:hover {
   text-decoration: underline;
-  color: #00aeef;
+  color: #ffcc00;
 }
 
-/* ==========================================================================
-     9. МОБИЛЬНАЯ АДАПТИВНОСТЬ (МЕДИА-ЗАПРОСЫ)
-     ========================================================================== */
+@media (max-width: 992px) {
+  .hero {
+    padding: 40px 5%;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin: 0 auto 30px;
+  }
+
+  .hero-image-wrapper {
+    justify-content: center;
+  }
+  
+  .hero-side-img {
+    height: 260px;
+    max-width: 440px;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column !important;
@@ -705,8 +605,6 @@ body {
     padding: 12px 2% !important;
     text-align: center !important;
     height: auto !important;
-    position: sticky !important;
-    background: #ffffff !important;
   }
 
   .logo-container { 
@@ -716,9 +614,7 @@ body {
   }
   .logo-img { 
     width: 70px !important; 
-    height: auto !important; 
     top: -5px !important; 
-    left: 0 !important; 
   }
   
   .nav { 
@@ -731,129 +627,37 @@ body {
     font-size: 14px !important; 
   }
 
-  .header-buttons {
-    width: auto !important;
-    justify-content: center !important;
-  }
-
-  .btn-call {
+  .btn-max-header {
     padding: 10px 20px !important;
     font-size: 14px !important;
-  }
-
-  .hero { padding: 50px 5% !important; }
-  .hero h1 { font-size: 30px !important; }
-
-  .tabs-container { 
-    display: flex !important;
-    flex-direction: column !important; 
-    width: 100% !important; 
-    background-color: #f0f0f0 !important;
-    border-radius: 15px !important; 
-    padding: 8px !important;
-    gap: 6px !important;
-  }
-  
-  .tab-btn { 
-    width: 100% !important; 
-    border-radius: 10px !important; 
-    background: #ffffff; 
-    color: #555;
-    position: relative !important;
-    z-index: 10 !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
-    padding: 12px 20px !important;
-    border: 1px solid transparent !important;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-  
-  .tab-btn.active { 
-    background: #222222;
-    color: #ffffff; 
-    border: 1px solid #222222;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
-  }
-  
-  .tabs-container .tab-slider { 
-    display: none !important; 
-  }
-
-  .price-table thead { display: none !important; }
-
-  /* Применяем flex ко всем обычным строкам прайса */
-  .price-table tbody tr:not(.accordion-details) {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 18px 20px !important;
-  }
-
-  .price-table td:first-child { max-width: 70% !important; }
-  .price-table td:nth-child(2) { display: none !important; }
-  .price-table td:last-child { text-align: right !important; }
-  .service-price { font-size: 16px !important; }
-
-  /* ФИКС МОБИЛЬНОГО АККОРДЕОНА: растягиваем плашки во всю ширь */
-  .price-table tbody tr.accordion-details.show {
-    display: block !important;
-    width: 100% !important;
-    margin-top: -12px !important;
-    margin-bottom: 5px !important;
-    padding: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-
-  .price-table tbody tr.accordion-details.show td {
-    display: block !important;
-    width: 100% !important;
-    padding: 0 !important;
-    background: transparent !important;
-  }
-
-  .canvas-sizes-list { 
-    padding: 10px 0 15px 0 !important; 
-    width: 100% !important;
-  }
-
-  .size-row { 
-    padding: 16px 20px !important; 
-    width: 100% !important;
   }
 
   .services-section, .gallery-section, .reviews-section { padding: 50px 5% !important; }
   .services-section h2, .reviews-section h2 { font-size: 28px !important; }
 
-  .footer-content {
-    display: flex !important;
+  .service-row {
     flex-direction: column !important;
-    gap: 35px !important;
-    text-align: center !important;
-    padding: 0 10px !important;
+    align-items: flex-start !important;
+    gap: 15px !important;
   }
 
-  .footer-info, .footer-contacts {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  .service-price {
+    align-self: flex-end !important;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
   }
 
   .social-buttons {
     justify-content: center !important;
-    margin-top: 15px !important;
-  }
-
-  .footer-contacts p {
-    text-align: center !important;
-    margin-bottom: 12px !important;
   }
 }
     </style>
   </head>
   <body>
-    <!-- Шапка сайта -->
+
     <header class="header">
       <a href="#" class="logo-container">
         <img src="./img/logo.png" alt="Печатный Цех" class="logo-img" />
@@ -865,228 +669,150 @@ body {
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="header-buttons">
-        <a class="btn-call" href="https://t.me/ambar_31" target="_blank"
-          >✉ Написать в Telegram</a
-        >
+        <a class="btn-max-header" href="https://max.ru/u/f9LHodD0cOJGuzxi-0vH8G3AhGmmq9mtpV9PpRZvUO5UzsipjG6C8u9kze8" target="_blank">MAX</a>
       </div>
     </header>
 
-    <!-- Главный экран -->
     <section class="hero">
-      <div class="hero-content">
-        <h1>Качественная печать фото в Разумном</h1>
-        <p>
-          Профессиональный копицентр, фотоуслуги и широкоформатная печать в ТЦ
-          «Амбар». Срочные заказы от 20 минут на современном оборудовании.
-        </p>
-        <a href="#services" class="btn-main">Смотреть цены</a>
-      </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section class="features-section">
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon">⚡</div>
-          <h4>Скорость от 20 мин.</h4>
-          <p>Выполняем стандартные заказы в кратчайшие сроки.</p>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">ПЕЧАТНЫЙ ЦЕХ</h1>
+          <p class="hero-subtitle">Качественная печать в Разумном</p>
+          <p class="hero-description">
+            Профессиональный копицентр, фотоуслуги и широкоформатная печать в ТЦ
+            «Амбар». Срочные заказы от 20 минут на современном оборудовании.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn-main">Смотреть цены</a>
+          </div>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon">💎</div>
-          <h4>Новая техника</h4>
-          <p>Современные станки для идеальной цветопередачи.</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">⭐</div>
-          <h4>Высокий рейтинг</h4>
-          <p>Сотни довольных клиентов и честные отзывы на картах.</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">📦</div>
-          <h4>Всё в одном месте</h4>
-          <p>От фото на паспорт до огромных баннеров и холстов.</p>
+        
+        <div class="hero-image-wrapper">
+          <img src="./img/photo1.jpg" alt="Вход в Печатный Цех" class="hero-slider-img" />
+          <img src="./img/photo9.jpg" alt="Печать портретов на холсте" class="hero-slider-img" />
+          <img src="./img/photo10.jpg" alt="Готовый семейный холст" class="hero-slider-img" />
         </div>
       </div>
     </section>
 
-    <!-- Интерактивный прайс-лист -->
     <section id="services" class="services-section">
       <h2>Наши услуги и цены</h2>
       <p class="section-subtitle">
-        Выберите категорию, чтобы посмотреть базовую стоимость
+        Базовая стоимость услуг копицентра
       </p>
 
-      <!-- Плавный таб-бар -->
-      <div class="tabs-container">
-        <div class="tab-slider"></div>
-        <button class="tab-btn active" data-tab="photo-docs">📸 Фото и Документы</button>
-        <button class="tab-btn" data-tab="print-copy">🖨️ Печать и Копирование</button>
-        <button class="tab-btn" data-tab="promo-canvas">🎨 Холсты и Таблички</button>
-      </div>
+      <div class="services-list">
 
-      <!-- Вкладка 1 -->
-      <div id="photo-docs" class="tab-content active">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th>Услуга</th>
-              <th>Описание</th>
-              <th>Стоимость</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="service-name">
-                Фото на документы
-                <span class="badge badge-new">Популярно</span>
-              </td>
-              <td>
-                Срочное изготовление фотографий на любые документы: паспорт, визы, водительское удостоверение и многое другое. Быстро, качественно, с бесплатной ретушью! Соответствие всем требованиям государственных органов.
-              </td>
-              <td class="service-price">400 ₽</td>
-            </tr>
-            <tr>
-              <td class="service-name">Брошюровка и переплет</td>
-              <td>
-                Скрепление листов в аккуратный документ. Подходит для курсовых, дипломов, отчетов, презентаций и других многостраничных материалов.
-              </td>
-              <td class="service-price">180 ₽</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Фото на документы</span>
+            <span class="service-desc">
+              Срочное изготовление фотографий на любые документы: паспорт, визы, водительское удостоверение и многое другое. Быстро, качественно, с бесплатной ретушью! Соответствие всем требованиям государственных органов.
+            </span>
+          </div>
+          <span class="service-price">400 ₽</span>
+        </div>
 
-      <!-- Вкладка 2 -->
-      <div id="print-copy" class="tab-content">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th>Услуга</th>
-              <th>Описание</th>
-              <th>Стоимость</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="service-name">Печать фотографий</td>
-              <td>
-                Качественная фотопечать любых форматов! Цена рассчитывается индивидуально и зависит от количества фотографий в тираже и выбранного типа бумаги (матовая, глянцевая, премиум). Большие тиражи — большие скидки!
-              </td>
-              <td class="service-price">от 10 ₽</td>
-            </tr>
-            <tr>
-              <td class="service-name">Ксерокопия и сканирование</td>
-              <td>
-                Ксерокопия (10 руб/страница), печать, сканирование. Быстро и качественно!
-              </td>
-              <td class="service-price">15 ₽</td>
-            </tr>
-            <tr>
-              <td class="service-name">Визитки (от 100 шт.)</td>
-              <td>
-                Изготовление визиток, минимальный тираж от 100 шт. Стоимость за 1 шт.: 4 руб. (односторонняя), 6 руб. (двухсторонняя).
-              </td>
-              <td class="service-price">от 4 ₽</td>
-            </tr>
-            <tr>
-              <td class="service-name">Широкоформатная печать</td>
-              <td>
-                Качественная широкоформатная печать на различных материалах: самоклеящаяся пленка, холст, бумага и многое другое! Цена рассчитывается индивидуально и зависит от выбранного материала и размера печати.
-              </td>
-              <td class="service-price">от 300 ₽</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Брошюровка и переплет</span>
+            <span class="service-desc">
+              Скрепление листов в аккуратный документ. Подходит для курсовых, дипломов, отчетов, презентаций и других многостраничных материалов.
+            </span>
+          </div>
+          <span class="service-price">180 ₽</span>
+        </div>
 
-      <!-- Вкладка 3 -->
-      <div id="promo-canvas" class="tab-content">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th>Услуга</th>
-              <th>Описание</th>
-              <th>Стоимость</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Кнопка аккордеона -->
-            <tr class="accordion-toggle" onclick="toggleAccordion(this)">
-              <td class="service-name">
-                Печать на холсте
-                <span class="badge badge-hit">Хит</span>
-              </td>
-              <td>Фото на холсте за 1 час! Превратите ваши любимые фотографии в произведения искусства. Цена зависит от размера холста и сложности обработки. Замена фона и ретушь — по вашему желанию!</td>
-              <td class="service-price">
-                <div style="display: inline-flex; align-items: center; justify-content: flex-end; width: 100%;">
-                  <span>от 700 ₽</span><span class="arrow-icon"></span>
-                </div>
-              </td>
-            </tr>
-            
-            <!-- Скрытые плашки размеров -->
-            <tr class="accordion-details" id="canvas-sizes-details">
-              <td colspan="3">
-                <div class="canvas-sizes-list">
-                  <div class="size-row">
-                    <span class="size-name-text">Размер 20×30 см</span>
-                    <span class="size-price-text">700 ₽</span>
-                  </div>
-                  <div class="size-row">
-                    <span class="size-name-text">Размер 30×40 см</span>
-                    <span class="size-price-text">1 100 ₽</span>
-                  </div>
-                  <div class="size-row">
-                    <span class="size-name-text">Размер 40×60 см</span>
-                    <span class="size-price-text">1 600 ₽</span>
-                  </div>
-                  <div class="size-row">
-                    <span class="size-name-text">Размер 50×70 см</span>
-                    <span class="size-price-text">2 100 ₽</span>
-                  </div>
-                  <div class="size-row">
-                    <span class="size-name-text">Размер 60×80 см</span>
-                    <span class="size-price-text">2 600 ₽</span>
-                  </div>
-                </div>
-              </td>
-            </tr>
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Печать фотографий</span>
+            <span class="service-desc">
+              Качественная фотопечать любых форматов! Цена рассчитывается индивидуально и зависит от количества фотографий в тираже и выбранного типа бумаги (матовая, глянцевая, премиум). Большие тиражи — большие скидки!
+            </span>
+          </div>
+          <span class="service-price">от 10 ₽</span>
+        </div>
 
-            <tr>
-              <td class="service-name">Плоттерная резка</td>
-              <td>Точная вырезка изображений и надписей из самоклеящейся пленки. Идеально для рекламы, оформления витрин, стендов, автомобилей и многого другого. Быстро, качественно, по вашим макетам.</td>
-              <td class="service-price">от 200 ₽</td>
-            </tr>
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Ксерокопия и сканирование</span>
+            <span class="service-desc">
+              Ксерокопия (10 руб/страница), печать, сканирование. Быстро и качественно!
+            </span>
+          </div>
+          <span class="service-price">15 ₽</span>
+        </div>
 
-            <tr>
-              <td class="service-name">Таблички</td>
-              <td>Создайте профессиональный имидж вашего бизнеса! Изготавливаем стильные и качественные таблички для офисов, магазинов, ресторанов. Адресные таблички, кабинетные таблички, навигационные указатели, рекламные вывески. Разработаем индивидуальный дизайн.</td>
-              <td class="service-price">150 ₽</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Визитки (от 100 шт.)</span>
+            <span class="service-desc">
+              Изготовление визиток, минимальный тираж от 100 шт. Стоимость за 1 шт.: 4 руб. (односторонняя), 6 руб. (двухсторонняя).
+            </span>
+          </div>
+          <span class="service-price">от 4 ₽</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Широкоформатная печать</span>
+            <span class="service-desc">
+              Качественная широкоформатная печать на различных материалах: самоклеящаяся пленка, холст, бумага и многое другое! Цена рассчитывается индивидуально и зависит от выбранного материала и размера печати.
+            </span>
+          </div>
+          <span class="service-price">от 300 ₽</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Печать на холсте</span>
+            <span class="service-desc">
+              Фото на холсте за 1 час! Превратите ваши любимые фотографии в произведения искусства. Цена зависит от размера холста и сложности обработки (20×30 см — 700 ₽, 30×40 см — 1100 ₽, 40×60 см — 1600 ₽, 50×70 см — 2100 ₽, 60×80 см — 2600 ₽). Замена фона и ретушь — по вашему желанию!
+            </span>
+          </div>
+          <span class="service-price">от 700 ₽</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Плоттерная резка</span>
+            <span class="service-desc">
+              Точная вырезка изображений и надписей из самоклеящейся пленки. Идеально для рекламы, оформления витрин, стендов, автомобилей и многого другого. Быстро, качественно, по вашим макетам.
+            </span>
+          </div>
+          <span class="service-price">от 200 ₽</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Таблички</span>
+            <span class="service-desc">
+              Создайте профессиональный имидж вашего бизнеса! Изготавливаем стильные и качественные таблички для офисов, магазинов, ресторанов. Адресные таблички, кабинетные таблички, навигационные указатели, рекламные вывески. Разработаем индивидуальный дизайн.
+            </span>
+          </div>
+          <span class="service-price">150 ₽</span>
+        </div>
+
       </div>
     </section>
 
-    <!-- Галерея -->
     <section id="gallery" class="gallery-section">
       <h2>Галерея наших работ</h2>
       <p class="section-subtitle">
         Примеры выполненных заказов и готовой продукции
       </p>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="./img/photo1.jpg" alt="Печать фотографий и ретушь" /></div>
-        <div class="gallery-item"><img src="./img/photo2.jpg" alt="Печать портретов на холсте" /></div>
-        <div class="gallery-item"><img src="./img/photo3.jpg" alt="Изготовление визиток и флаеров" /></div>
-        <div class="gallery-item"><img src="./img/photo4.jpg" alt="Широкоформатная печать баннеров" /></div>
+        <div class="gallery-item"><img src="./img/photo1.jpg" alt="Печать фотографий" /></div>
+        <div class="gallery-item"><img src="./img/photo2.jpg" alt="Печать на холсте" /></div>
+        <div class="gallery-item"><img src="./img/photo3.jpg" alt="Изготовление визиток" /></div>
+        <div class="gallery-item"><img src="./img/photo4.jpg" alt="Широкоформатная печать" /></div>
         <div class="gallery-item"><img src="./img/photo5.jpg" alt="Фото на документы" /></div>
         <div class="gallery-item"><img src="./img/photo6.jpg" alt="Печать на сувенирах" /></div>
-        <div class="gallery-item"><img src="./img/photo7.jpg" alt="Плоттерная резка наклейки" /></div>
-        <div class="gallery-item"><img src="./img/photo8.jpg" alt="Дизайн рекламной полиграфии" /></div>
+        <div class="gallery-item"><img src="./img/photo7.jpg" alt="Плоттерная резка" /></div>
+        <div class="gallery-item"><img src="./img/photo8.jpg" alt="Дизайн полиграфии" /></div>
       </div>
     </section>
 
-    <!-- Блок отзывов -->
     <section id="reviews" class="reviews-section">
       <h2>Отзывы наших клиентов</h2>
       <p class="section-subtitle">
@@ -1135,7 +861,6 @@ body {
       </a>
     </section>
 
-    <!-- Подвал -->
     <footer id="contacts" class="footer">
       <div class="footer-content">
         <div class="footer-info">
@@ -1144,16 +869,16 @@ body {
             Ваш надежный партнер в мире полиграфии. Скидывайте файлы заранее в мессенджеры или соцсети, чтобы забрать готовый заказ без очереди!
           </p>
           <div class="social-buttons">
-            <a href="https://t.me/ambar_31" target="_blank" class="btn-social btn-tg">💬 Telegram</a>
-            <a href="https://wa.me/79102717131" target="_blank" class="btn-social btn-wa">💬 WhatsApp</a>
+            <a href="https://max.ru/u/f9LHodD0cOJGuzxi-0vH8G3AhGmmq9mtpV9PpRZvUO5UzsipjG6C8u9kze8" target="_blank" class="btn-social btn-max">💬 MAX</a>
             <a href="https://vk.com/31ambar" target="_blank" class="btn-social btn-vk">🌐 ВКонтакте</a>
+            <a href="https://t.me/pechatniy_tseh" target="_blank" class="btn-social btn-tg">📢 Telegram</a>
           </div>
         </div>
         <div class="footer-contacts">
           <h3>Контакты</h3>
           <p>📍 пгт. Разумное, проспект Ленина, 8 (ТЦ «Амбар»)</p>
           <p>⏱️ Ежедневно с 09:00 до 19:00</p>
-          <p>📞 Тел: <a href="tel:+79102717131">+7 (910) 271-71-31</a></p>
+          <p>📞 Тел: +7 (910) 271-71-31</p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1161,66 +886,5 @@ body {
       </div>
     </footer>
 
-    <!-- Скрипты -->
-    <script>
-      // Функция обновления ползунка табов (для десктопа)
-      function updateSlider() {
-        const activeBtn = document.querySelector('.tab-btn.active');
-        const slider = document.querySelector('.tab-slider');
-        const container = document.querySelector('.tabs-container');
-        
-        if (activeBtn && slider && window.innerWidth > 768) {
-          const rect = activeBtn.getBoundingClientRect();
-          const containerRect = container.getBoundingClientRect();
-          
-          slider.style.width = `${rect.width}px`;
-          slider.style.left = `${rect.left - containerRect.left}px`;
-        }
-      }
-
-      // Переключение вкладок (табов)
-      document.querySelectorAll('.tab-btn').forEach(button => {
-        button.addEventListener('click', function() {
-          const tabId = this.getAttribute('data-tab');
-          
-          document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-          
-          if (window.innerWidth > 768) {
-            updateSlider();
-          }
-          
-          document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-
-      // Логика аккордеона холстов (изолированная от ложных ресайзов скролла)
-      function toggleAccordion(element) {
-        element.classList.toggle('open');
-        const detailsRow = document.getElementById('canvas-sizes-details');
-        
-        if (detailsRow) {
-          detailsRow.classList.toggle('show');
-        }
-      }
-
-      // При первой загрузке страницы
-      window.addEventListener('DOMContentLoaded', () => {
-        if (window.innerWidth > 768) updateSlider();
-      });
-      
-      // Следим за экраном ТОЛЬКО ради табов, аккордеон скролл мобилки больше не сбросит!
-      let lastWidth = window.innerWidth;
-      window.addEventListener('resize', () => {
-        if (window.innerWidth !== lastWidth) {
-          lastWidth = window.innerWidth;
-          
-          if (window.innerWidth > 768) {
-            updateSlider();
-          }
-        }
-      });
-    </script>
   </body>
 </html>
