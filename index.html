@@ -936,6 +936,8 @@ body {
 
 @media (max-width: 768px) {
   .header {
+    position: relative !important; /* Отменяет фиксацию при скролле */
+    top: auto !important;
     flex-direction: column !important;
     gap: 12px !important;
     padding: 15px 4% !important;
