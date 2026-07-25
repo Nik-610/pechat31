@@ -512,7 +512,7 @@ body {
 }
 
 .review-card::before {
-  content: "“";
+  content: "\201C";
   font-size: 70px;
   color: #f1f1f1;
   position: absolute;
@@ -660,105 +660,6 @@ body {
   text-decoration: none;
   color: #ffcc00;
   transition: color 0.1s linear;
-}
-
-@media (max-width: 992px) {
-  .hero {
-    padding: 40px 5%;
-    min-height: auto;
-  }
-
-  .hero-title {
-    font-size: 42px;
-  }
-  
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 35px;
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-left: 0;
-  }
-
-  .hero-description {
-    margin: 0 auto 30px;
-  }
-
-  .hero-image-wrapper {
-    display: none !important;
-  }
-
-  .hero-facts {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column !important;
-    gap: 12px !important;
-    padding: 15px 2% !important;
-    text-align: center !important;
-    height: auto !important;
-  }
-
-  .logo-container { 
-    width: 90px !important; 
-    height: 65px !important; 
-    margin: 0 auto !important;
-  }
-  
-  .logo-img { 
-    width: 90px !important; 
-    top: -5px !important; 
-  }
-  
-  .nav { 
-    justify-content: center !important; 
-    width: 100% !important; 
-    gap: 12px !important;
-    flex-wrap: wrap;
-  }
-  
-  .nav a { 
-    margin: 0 5px !important; 
-    font-size: 15px !important; 
-  }
-
-  .header-buttons {
-    margin-top: 5px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .btn-max-header {
-    padding: 8px 20px !important;
-    font-size: 14px !important;
-  }
-
-  .services-section, .gallery-section, .reviews-section { 
-    padding: 40px 4% !important; 
-  }
-  
-  .services-section h2, .reviews-section h2 { 
-    font-size: 26px !important; 
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr !important;
-    text-align: center !important;
-    gap: 30px !important;
-  }
-
-  .social-buttons {
-    justify-content: center !important;
-  }
 }
 
 .gallery-item, .service-card {
@@ -991,18 +892,10 @@ body {
   display: flex;
 }
 
-@media (max-width: 640px) {
-  .lightbox-nav {
-    width: 38px;
-    height: 38px;
-    margin: 0 4px;
-    font-size: 15px;
-  }
-}
-
 /* ==========================================================================
-     8. МОБИЛЬНАЯ АДАПТИВНОСТЬ И ФИКСЫ ИНТЕРФЕЙСА
+     МОБИЛЬНАЯ АДАПТИВНОСТЬ
      ========================================================================== */
+
 @media (max-width: 992px) {
   .hero {
     padding: 40px 5%;
@@ -1013,7 +906,7 @@ body {
     font-size: 46px;
     letter-spacing: -1px;
   }
-  
+
   .hero-container {
     flex-direction: column;
     text-align: center;
@@ -1048,29 +941,28 @@ body {
     padding: 15px 4% !important;
     text-align: center !important;
     height: auto !important;
-    position: relative;
   }
 
-  .logo-container { 
+  .logo-container {
     height: 55px !important;
     padding: 0 !important;
     margin: 0 auto !important;
   }
-  
-  .logo-img { 
+
+  .logo-img {
     max-height: 55px !important;
   }
-  
-  .nav { 
-    justify-content: center !important; 
-    width: 100% !important; 
+
+  .nav {
+    justify-content: center !important;
+    width: 100% !important;
     gap: 15px !important;
     flex-wrap: wrap;
   }
-  
-  .nav a { 
-    margin: 0 !important; 
-    font-size: 15px !important; 
+
+  .nav a {
+    margin: 0 !important;
+    font-size: 15px !important;
   }
 
   .header-buttons {
@@ -1084,21 +976,34 @@ body {
     font-size: 14px !important;
   }
 
-  .services-section, .gallery-section, .reviews-section { 
-    padding: 50px 5% !important; 
+  .services-section, .gallery-section, .reviews-section {
+    padding: 50px 5% !important;
   }
-  
-  .services-section h2, .reviews-section h2, .gallery-section h2 { 
-    font-size: 28px !important; 
+
+  .services-section h2, .reviews-section h2, .gallery-section h2 {
+    font-size: 28px !important;
   }
 
   .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .service-footer {
     padding-right: 25px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .gallery-item {
+    height: 160px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer {
@@ -1114,80 +1019,117 @@ body {
   .social-buttons {
     justify-content: center !important;
   }
-  
+
   .footer-contacts {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+  .lightbox-details {
+    padding: 20px 18px 18px;
+  }
+
+  .lightbox-details h3 {
+    font-size: 20px;
+  }
+
+  .lightbox-overlay.gallery-mode .lightbox-box {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 576px) {
-  .hero-title {
-    font-size: 38px;
+  .hero {
+    padding: 32px 6% !important;
   }
-  
-  .hero-description {
-    font-size: 17px;
+
+  .hero-title {
+    font-size: 34px;
+    letter-spacing: -1px;
   }
 
   .hero-subtitle {
-    font-size: 18px;
-    padding: 6px 12px;
+    font-size: 16px;
+    padding: 5px 12px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .btn-main {
+    width: 100%;
+    text-align: center;
+    padding: 16px 20px !important;
   }
 
   .hero-facts {
     gap: 8px;
+    justify-content: flex-start;
   }
 
   .hero-fact {
     padding: 6px 10px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
-  /* Исправление вылетов модального окна (Лайтбокса) на маленьких экранах */
+  .nav a {
+    font-size: 14px !important;
+    margin: 0 3px !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    height: 220px;
+  }
+
+  .service-footer {
+    flex-wrap: wrap;
+  }
+
+  .canvas-size-select {
+    flex: 1 1 100%;
+  }
+
+  .review-card {
+    padding: 22px;
+  }
+
+  /* Исправление вылетов модального окна (лайтбокса) на маленьких экранах */
   .lightbox-box {
     max-height: 85vh;
     width: 100%;
     margin: 0 auto;
   }
-  
+
   .lightbox-img {
     max-height: 40vh;
-  }
-  
-  .lightbox-overlay.gallery-mode .lightbox-box {
-    max-width: 100%;
-  }
-  
-  .lightbox-details {
-    padding: 24px 16px 16px;
-  }
-  
-  .lightbox-details h3 {
-    font-size: 20px;
   }
 
   .lightbox-details p {
     font-size: 14px;
     margin: 12px 0 18px;
   }
-  
+
   .lightbox-nav {
     width: 40px;
     height: 40px;
-    margin: 0 4px;
     font-size: 16px;
     position: fixed;
     bottom: 20px;
     background: rgba(17, 17, 17, 0.9);
     z-index: 1001;
+    margin: 0;
   }
-  
+
   .lightbox-prev {
     left: 20px;
   }
-  
+
   .lightbox-next {
     right: 20px;
   }
@@ -1257,7 +1199,7 @@ body {
 
       <div class="services-grid">
 
-        <div class="service-card" onclick="openServiceModal('photo5.jpg','Фото на документы','Срочное фото на паспорт, визы и удостоверения с быстрой ретушью.','400 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo5.jpg','Фото на документы','Срочное фото на паспорт, визы и удостоверения с быстрой ретушью.','400 ₽')">
           <span class="service-badge">Популярное</span>
           <div class="service-img-container">
             <img src="./img/photo5.jpg" alt="Фото на документы"  loading="lazy" />
@@ -1271,7 +1213,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo1.jpg','Брошюровка','Надежный переплет дипломов, курсовых работ и презентаций.','180 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo1.jpg','Брошюровка','Надежный переплет дипломов, курсовых работ и презентаций.','180 ₽')">
           <div class="service-img-container">
             <img src="./img/photo1.jpg" alt="Брошюровка и переплет"  loading="lazy" />
           </div>
@@ -1284,7 +1226,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo1.jpg','Копирование и скан','Быстрая ксерокопия, распечатка документов и сканирование в PDF.','15 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo1.jpg','Копирование и скан','Быстрая ксерокопия, распечатка документов и сканирование в PDF.','15 ₽')">
           <div class="service-img-container">
             <img src="./img/photo1.jpg" alt="Ксерокопия и сканирование"  loading="lazy" />
           </div>
@@ -1297,7 +1239,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo3.jpg','Визитки','Качественные односторонние и двухсторонние визитки от 100 штук.','от 4 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo3.jpg','Визитки','Качественные односторонние и двухсторонние визитки от 100 штук.','от 4 ₽')">
           <span class="service-badge">Популярное</span>
           <div class="service-img-container">
             <img src="./img/photo3.jpg" alt="Визитки"  loading="lazy" />
@@ -1311,7 +1253,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo4.jpg','Большие форматы','Широкоформатная печать на холстах, баннерах и самоклейке.','от 300 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo4.jpg','Большие форматы','Широкоформатная печать на холстах, баннерах и самоклейке.','от 300 ₽')">
           <div class="service-img-container">
             <img src="./img/photo4.jpg" alt="Широкоформатная печать"  loading="lazy" />
           </div>
@@ -1324,7 +1266,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo6.jpg','Печать фото','Качественная фотопечать любых форматов на матовой и глянцевой бумаге.','от 10 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo6.jpg','Печать фото','Качественная фотопечать любых форматов на матовой и глянцевой бумаге.','от 10 ₽')">
           <span class="service-badge">Популярное</span>
           <div class="service-img-container">
             <img src="./img/photo6.jpg" alt="Печать фотографий"  loading="lazy" />
@@ -1338,7 +1280,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openCanvasModal('photo2.jpg','Печать на холсте','Создание картин из ваших фотографий на подрамнике за 1 час.')">
+        <div class="service-card" onclick="openCanvasModal('./img/photo2.jpg','Печать на холсте','Создание картин из ваших фотографий на подрамнике за 1 час.')">
           <div class="service-img-container">
             <img src="./img/photo2.jpg" alt="Печать на холсте"  loading="lazy" />
           </div>
@@ -1358,7 +1300,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo7.jpg','Плоттерная резка','Точная фигурная вырезка из прочной самоклеящейся пленки.','от 200 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo7.jpg','Плоттерная резка','Точная фигурная вырезка из прочной самоклеящейся пленки.','от 200 ₽')">
           <div class="service-img-container">
             <img src="./img/photo7.jpg" alt="Плоттерная резка"  loading="lazy" />
           </div>
@@ -1371,7 +1313,7 @@ body {
           </div>
         </div>
 
-        <div class="service-card" onclick="openServiceModal('photo8.jpg','Офисные таблички','Изготовление адресных и кабинетных вывесок под ваш дизайн.','150 ₽')">
+        <div class="service-card" onclick="openServiceModal('./img/photo8.jpg','Офисные таблички','Изготовление адресных и кабинетных вывесок под ваш дизайн.','150 ₽')">
           <div class="service-img-container">
             <img src="./img/photo8.jpg" alt="Таблички"  loading="lazy" />
           </div>
@@ -1393,14 +1335,14 @@ body {
         Примеры выполненных заказов и готовой продукции
       </p>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="./img/photo1.jpg" alt="Печать фотографий"  loading="lazy" onclick="openGalleryLightbox('photo1.jpg', 'Печать фотографий')" /></div>
-        <div class="gallery-item"><img src="./img/photo2.jpg" alt="Печать на холсте"  loading="lazy" onclick="openGalleryLightbox('photo2.jpg', 'Печать на холсте')" /></div>
-        <div class="gallery-item"><img src="./img/photo3.jpg" alt="Изготовление визиток"  loading="lazy" onclick="openGalleryLightbox('photo3.jpg', 'Изготовление визиток')" /></div>
-        <div class="gallery-item"><img src="./img/photo4.jpg" alt="Широкоформатная печать"  loading="lazy" onclick="openGalleryLightbox('photo4.jpg', 'Широкоформатная печать')" /></div>
-        <div class="gallery-item"><img src="./img/photo5.jpg" alt="Фото на документы"  loading="lazy" onclick="openGalleryLightbox('photo5.jpg', 'Фото на документы')" /></div>
-        <div class="gallery-item"><img src="./img/photo6.jpg" alt="Печать фотографий"  loading="lazy" onclick="openGalleryLightbox('photo6.jpg', 'Печать фотографий')" /></div>
-        <div class="gallery-item"><img src="./img/photo7.jpg" alt="Плоттерная резка"  loading="lazy" onclick="openGalleryLightbox('photo7.jpg', 'Плоттерная резка')" /></div>
-        <div class="gallery-item"><img src="./img/photo8.jpg" alt="Дизайн полиграфии"  loading="lazy" onclick="openGalleryLightbox('photo8.jpg', 'Дизайн полиграфии')" /></div>
+        <div class="gallery-item"><img src="./img/photo1.jpg" alt="Печать фотографий"  loading="lazy" onclick="openGalleryLightbox('./img/photo1.jpg', 'Печать фотографий')" /></div>
+        <div class="gallery-item"><img src="./img/photo2.jpg" alt="Печать на холсте"  loading="lazy" onclick="openGalleryLightbox('./img/photo2.jpg', 'Печать на холсте')" /></div>
+        <div class="gallery-item"><img src="./img/photo3.jpg" alt="Изготовление визиток"  loading="lazy" onclick="openGalleryLightbox('./img/photo3.jpg', 'Изготовление визиток')" /></div>
+        <div class="gallery-item"><img src="./img/photo4.jpg" alt="Широкоформатная печать"  loading="lazy" onclick="openGalleryLightbox('./img/photo4.jpg', 'Широкоформатная печать')" /></div>
+        <div class="gallery-item"><img src="./img/photo5.jpg" alt="Фото на документы"  loading="lazy" onclick="openGalleryLightbox('./img/photo5.jpg', 'Фото на документы')" /></div>
+        <div class="gallery-item"><img src="./img/photo6.jpg" alt="Печать фотографий"  loading="lazy" onclick="openGalleryLightbox('./img/photo6.jpg', 'Печать фотографий')" /></div>
+        <div class="gallery-item"><img src="./img/photo7.jpg" alt="Плоттерная резка"  loading="lazy" onclick="openGalleryLightbox('./img/photo7.jpg', 'Плоттерная резка')" /></div>
+        <div class="gallery-item"><img src="./img/photo8.jpg" alt="Дизайн полиграфии"  loading="lazy" onclick="openGalleryLightbox('./img/photo8.jpg', 'Дизайн полиграфии')" /></div>
       </div>
     </section>
 
