@@ -85,11 +85,29 @@ body {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+
+  /* Подключаем анимацию волны */
+  animation: pulseWave 2s infinite ease-in-out;
 }
 
 .btn-max-header:hover {
   background: #ffcc00;
   color: #111111;
+  /* При наведении останавливаем волну */
+  animation-play-state: paused;
+}
+
+/* Анимация исключительно для эффекта расходящейся волны */
+@keyframes pulseWave {
+  0% {
+    box-shadow: 0 0 0 0 rgba(77, 46, 250, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(77, 46, 250, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(77, 46, 250, 0);
+  }
 }
 
 .hero {
